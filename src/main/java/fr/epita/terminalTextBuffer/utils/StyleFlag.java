@@ -1,4 +1,4 @@
-package fr.epita.utils;
+package fr.epita.terminalTextBuffer.utils;
 
 public enum StyleFlag {
     BOLD,
