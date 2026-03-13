@@ -1,6 +1,7 @@
 package fr.epita.terminalTextBuffer.utils;
 
 public enum TerminalColor {
+    DEFAULT,
     BLACK,
     RED,
     GREEN,
