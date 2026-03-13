@@ -2,6 +2,8 @@ package fr.epita.terminalTextBuffer;
 
 import fr.epita.terminalTextBuffer.utils.*;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.EnumSet;
 import java.util.Optional;
 
@@ -13,7 +15,7 @@ public class TerminalTextBuffer {
     private Cursor cursor;
 
     private final int maxScrollbackSize;
-    private CharacterCell[][] scrollback;
+    private Deque<CharacterCell[]> scrollback;
     private CharacterCell[][] screen;
 
     public TerminalTextBuffer(int maxScrollbackSize, int initialHeight, int initialWidth) {
@@ -31,7 +33,7 @@ public class TerminalTextBuffer {
         this.maxScrollbackSize = maxScrollbackSize;
 
         this.screen = new CharacterCell[initialHeight][initialWidth];
-        this.scrollback = new CharacterCell[maxScrollbackSize][];
+        this.scrollback = new ArrayDeque<>(maxScrollbackSize);
 
         // setting all the cells to empty characters
         for (int row = 0; row < initialHeight; row++) {
